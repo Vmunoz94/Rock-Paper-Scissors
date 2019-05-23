@@ -1,12 +1,16 @@
 const WebSocket = require('ws');
 
 const wss = new WebSocket.Server({ port: 4000 });
+const player1Id = 1;
+const player2Id = 2;
+let switchId = true;
 
 wss.on('connection', (ws) => {
   console.log('client has connected');
   
   ws.on('message', (message) => {
     console.log(message)
+    wss.broadcast(message);
   });
 
   ws.on('close', () => {
@@ -18,7 +22,15 @@ wss.on('connection', (ws) => {
   });
 
   // how to send data
-  ws.send('something');
+  if (switchId){
+    switchId = !switchId
+    ws.send(player1Id);
+  }
+  else {
+    switchId = !switchId
+    ws.send(player2Id);
+  }
+  // ws.send('something');
 });
 
 // utility broadcast function
