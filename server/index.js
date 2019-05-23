@@ -14,6 +14,7 @@ wss.on('connection', (ws) => {
   });
 
   ws.on('close', () => {
+    wss.broadcast("Reset")
     console.log('client has closed');
   });
 
