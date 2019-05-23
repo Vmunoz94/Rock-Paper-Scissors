@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Final 667
+All packages necessary should be pre-insalled, don't install more.
 
-## Available Scripts
+## Task
+Create a simple 2 player rock–paper–scissors
 
-In the project directory, you can run:
+### Sub tasks
+- create a home page with 3 buttons, and 3 display divs. 2 for showing player's choice, and 1 for showing winner. Also add a reset button to clear the display.
+- create a reducer to hold values for choices
+- create appropriate actions
+- create a web socket connection, assume only 2 players
+- On click, send each players choice to the server via message
+- When both players have made a choice, the winner is displayed
+- updates are sent out in real time
+- Add reset functionality, triggered by a reset button
+- no microservices necessary, back end can be 1 single file
+- if a player disconnects, the game has to reset too
 
-### `npm start`
+### Point breakdown (Each 10)
+- Ui with buttons, buttons have correct handlers
+- Reducer with all values, do not use react state
+- Action(s) to set the values
+- ws message to send choice (client/server combo)
+- logic to handle p1/p2 on server
+- trigger reset on client disconnect
+- manually trigger a reset from a user
+- Websocket broadcast choice (client/server combo)
+- websocket broadcast reset (client/server combo)
+- Front end, display correct state, (Waiting on turn, or who wins)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Running
+first install with `npm install`. 
+Start front end with
+```
+npm run-script start
+```
+Start server with
+```
+node server/index.js
+```
